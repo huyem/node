@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
-
-app.listen(6010,function () {
+const PORT = process.env.PORT || 5000;
+//co nghia la neu kog co bieen nao khac thi c=van chajy qua cong 5000
+app.listen(PORT,function () {
     console.log("server is running...");
 });
 app.use(express.static("public"));
