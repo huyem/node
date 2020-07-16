@@ -26,7 +26,7 @@ app.get("/about-us",function (req,res) {
 });
 const fs = require("fs");
 app.get("/danh-sach-thanh-pho",function (req,res) {
-    let data = fs.readFileSync("data/thanhpho.json","utf-8");
+    let data = fs.readFileSync("data/data.json","utf-8");
     let cities = JSON.parse(data);
     res.render("cities",{
         cities:cities
@@ -36,14 +36,14 @@ app.get("/danh-sach-thanh-pho",function (req,res) {
 app.get("/thanh-pho/:id",function (req,res) {
     let cityId = req.params.id;
     let city = {};
-    let data = fs.readFileSync("data/thanhpho.json","utf-8");
+    let data = fs.readFileSync("data/data.json","utf-8");
     let cities = JSON.parse(data);
     cities.map(function (e) {
         if(e.id == cityId){
             city = e;
         }
     });
-    res.render("city",{
+    res.render("lab13",{
         city:city
     });
 })
